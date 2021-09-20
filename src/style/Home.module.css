@@ -1,0 +1,10 @@
+.main {
+  width: 100%;
+  height: 100vh;
+  padding: 20rem 10rem;
+  background: url(https://www.psychologies.co.uk/sites/default/files/styles/psy2_page_header/public/field/image/introvert%20or%20extrovert.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
