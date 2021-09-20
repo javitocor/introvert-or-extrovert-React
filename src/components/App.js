@@ -1,7 +1,7 @@
 import React from 'react';
 import { Router, Route, Switch } from 'react-router-dom';
 import NavBar from './NavBar';
-import Home from '../Home';
+import Home from './Home';
 import Test from '../containers/Test';
 import Results from '../containers/Results';
 
