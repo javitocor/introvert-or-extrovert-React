@@ -10,3 +10,5 @@ export const GET_ALL_ITEMS_PENDING = 'GET_ALL_ITEMS_PENDING';
 export const GET_ALL_ITEMS_ERROR = 'GET_ALL_ITEMS_ERROR';
 export const UPDATE_TOTAL_VALUE = 'UPDATE_TOTAL_VALUE ';
 
+export const URL = 'http://localhost/';
+
