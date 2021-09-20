@@ -8,7 +8,7 @@ class Home extends Component {
       <main className="pt-5">
         <div className={home.main}>
           <div className="jumbotron  text-centerpt-5 mb-0 bg-light">
-            <h1 className="display-4 text-white">Test: Are you an introvert or an extrovert?</h1>
+            <h1 className="display-4 text-white">Are you an introvert or an extrovert?</h1>
             <p className="lead text-white">So do you consider yourself more of an introvert or an extrovert? Take this test, put together with input from psychoanalyst Mrs. IKnowEverything, and find out</p>
             <hr className="my-4" />
             <p className="text-white">by JaviCorp Psychologies</p>
@@ -21,7 +21,7 @@ class Home extends Component {
                 role="tab"
                 aria-controls="home"
               >
-                Go to Tests
+                Go to the Test
               </Link>
             </div>
           </div>
