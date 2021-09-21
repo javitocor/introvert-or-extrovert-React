@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/forbid-prop-types */
 import React, {useState, useEffect} from 'react';
 import PropTypes from 'prop-types';
@@ -18,8 +19,14 @@ const Test = (props) => {
   const [value, setValue] = useState(0);
 
   useEffect(() => {
-    getAllItems();
-    setSelectedItems(pickQuestions(5, itemsList))
+    (async () => {
+      try {  
+        const data = await getAllItems();
+        setSelectedItems(pickQuestions(5, data))
+      } catch (error) {
+        console.log(error)
+      }           
+    })();
   }, []);
 
   function handleSubmitQuestion(points){
@@ -30,8 +37,8 @@ const Test = (props) => {
   function handleSubmitTest(){
     updateTotalValueRedux(value);
   };
-
-  return selectedItems.length === 0 ? <div className="d-flex justify-content-center align-items-center pt-5 w-100">Loading...</div> : (
+  console.log(selectedItems)
+  return pending ? <div className="d-flex justify-content-center align-items-center pt-5 w-100">Loading...</div> : (
     <main className="">
       <div className="">
         <h2>Test: Are you an introvert or an extrovert?</h2>

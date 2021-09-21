@@ -17,7 +17,7 @@ class NavBar extends Component {
             role="tab"
             aria-controls="home"
           >
-            HOME
+            Introvert or Extrovert
           </Link>
           <form className="form-inline">
             <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />

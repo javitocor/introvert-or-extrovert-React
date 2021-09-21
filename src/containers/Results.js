@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, {useState, useEffect} from 'react';
 import { Link } from "react-router-dom";
 import PropTypes from 'prop-types';
@@ -47,7 +48,7 @@ const Results = (props) => {
 
 Results.propTypes = {
   totalValue: PropTypes.number.isRequired,
-  updateTotalValue: PropTypes.func.isRequired,
+  updateTotalValueRedux: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
