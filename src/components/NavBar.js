@@ -8,7 +8,7 @@ class NavBar extends Component {
 
     return(
       <header className={navbar.header}>
-        <nav className="navbar navbar-dark bg-primary justify-content-between">
+        <nav className={`navbar navbar-dark ${navbar.color} justify-content-between`}>
           <Link
             to="/"
             id="list-home-list"
@@ -21,7 +21,7 @@ class NavBar extends Component {
           </Link>
           <form className="form-inline">
             <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
-            <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            <button className="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
           </form>
         </nav>
       </header>

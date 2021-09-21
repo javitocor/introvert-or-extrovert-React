@@ -4,18 +4,17 @@ import NavBar from './NavBar';
 import Home from './Home';
 import Test from '../containers/Test';
 import Results from '../containers/Results';
+import style from '../style/Home.module.css';
 
 const App = () => (
   <Router>
     <Switch>
       <>
-        <div className="">
-          <div className="">
-            <Route path="/" component={NavBar} />
-            <Route exact path="/" component={Home} />
-            <Route exact path="/test" component={Test} />
-            <Route exact path="/results" component={Results} />
-          </div>
+        <div className={style.content}>
+          <Route path="/" component={NavBar} />
+          <Route exact path="/" component={Home} />
+          <Route exact path="/test" component={Test} />
+          <Route exact path="/results" component={Results} />
         </div>
       </>
     </Switch>

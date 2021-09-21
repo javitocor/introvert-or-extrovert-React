@@ -1,3 +1,4 @@
+/* eslint-disable radix */
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/forbid-prop-types */
 import React, {useState, useEffect} from 'react';
@@ -5,7 +6,6 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import callApi from '../helpers/APICall';
-import { updateTotalValue } from '../actions/items';
 import pickQuestions from '../helpers/pickQuestions';
 import QuestionForm from '../components/QuestionForm';
 import TestFinish from '../components/TestFinish';
@@ -13,7 +13,7 @@ import style from '../style/Test.module.css';
 
 
 const Test = (props) => {
-  const {pending, itemsList, getAllItems, updateTotalValueRedux} = props;
+  const {pending, itemsList, getAllItems} = props;
   const [selectedItems, setSelectedItems] = useState([]);
   const [index, setIndex] = useState(0);
   const [value, setValue] = useState(0);
@@ -30,23 +30,37 @@ const Test = (props) => {
   }, []);
 
   function handleSubmitQuestion(points){
-    setValue(value + points);
-    setIndex(index + 1);
+    setValue(value + parseInt(points));
+    setIndex(index + 1);    
   };
-
-  function handleSubmitTest(){
-    updateTotalValueRedux(value);
-  };
-  console.log(selectedItems)
+  
   return pending ? <div className="d-flex justify-content-center align-items-center pt-5 w-100">Loading...</div> : (
-    <main className="">
-      <div className="">
-        <h2>Test: Are you an introvert or an extrovert?</h2>
-        <div className="">
+    <main className={`container mt-2 ${style.main}`}>
+      <div className={`p-2 text-center ${style.content}`}>
+        <div className="d-flex flex-column justify-content-center align-items-start">
+          <div className="py-4 d-flex flex-row">
+            <p className={`font-weight-bold ${style.size}`}>
+              Tests
+              /
+              <span className='text-muted'> 21 Sep 2021</span>
+
+            </p>
+          </div>
+          <div className="mb-2">
+            <h2 className={style.color2}>Test: Are you an introvert or an extrovert?</h2>
+            <p className="lead">So do you consider yourself more of an introvert or an extrovert? Take this test, put together with input from psychoanalyst Mrs. IKnowEverything, and find out</p>
+            <hr className="my-4" />
+            <p className={style.color2}>by JaviCorp Psychologies</p>
+            <ul>
+              <li><i className="fab fa-facebook-f" /></li>
+              <li><i className="fab fa-twitter" /></li>
+              <li><i className="fas fa-envelope" /></li>
+            </ul>
+          </div>
           {index < selectedItems.length 
-          ? <QuestionForm question={selectedItems[index]} onSubmit={handleSubmitQuestion} numQuestions={selectedItems.length} index={index} />
-          : <TestFinish onSubmit={handleSubmitTest} />
-          }          
+            ? <QuestionForm key={index} question={selectedItems[index]} onSubmit={handleSubmitQuestion} numQuestions={selectedItems.length} index={index} />
+            : <TestFinish value={value} />
+          }  
         </div>
       </div>
     </main>
@@ -72,7 +86,6 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => bindActionCreators({
   getAllItems: callApi,
-  updateTotalValueRedux: updateTotalValue
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Test);

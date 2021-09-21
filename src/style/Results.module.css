@@ -1,0 +1,16 @@
+.color{
+  color: #d10056 !important;
+}
+
+.color2{
+  background-color: #d10056 !important;
+}
+
+.main {
+  padding: 15rem 10rem;
+  background: url('https://images.pexels.com/photos/1105766/pexels-photo-1105766.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=1000') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}

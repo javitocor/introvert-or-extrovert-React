@@ -1,7 +1,6 @@
 import {
   initialStateItems,
   GET_ALL_ITEMS, GET_ALL_ITEMS_PENDING, GET_ALL_ITEMS_ERROR,
-  UPDATE_TOTAL_VALUE,
 } from '../constants/constants';
 
 const itemReducer = (state = initialStateItems, action) => {
@@ -22,12 +21,7 @@ const itemReducer = (state = initialStateItems, action) => {
         ...state,
         pending: false,
         error: action.error,
-      };    
-    case UPDATE_TOTAL_VALUE:
-      return {
-        ...state,
-        totalValue: action.newValue,
-      };
+      };  
     default:
       return state;
   }

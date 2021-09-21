@@ -1,32 +1,34 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-import PropTypes from 'prop-types';
+import style from '../style/Finish.module.css'
 
 const TestFinish = (props) => {
-  const { onSubmit } = props;
+  const { value } = props;
 
 
   return (
-    <div className="">
-      <h6>Test Finished</h6>
-      <div className="">
+    <div className="d-flex flex-column justify-content-center align-items-start p-4 w-100 border bg-light">
+      <h4 className='pl-3'>Test Finished</h4>
+      <h5 className='mb-4 text-bold pl-3'>Click the button to see your results</h5>
+      <div className="d-flex flex-row align-items-center w-100 justify-content-end">
         <Link
-          onClick={() => onSubmit()}
-          to="/results"
+          to={{
+            pathname: "/results",
+            state: {
+              value,
+            },
+          }}
           id="list-home-list"
-          className="btn btn-primary btn-lg"
+          className={`btn ${style.color} mb-2 text-light`}
           data-toggle="list"
           role="tab"
-          aria-controls="results"
+          aria-controls="home"
         >
-          Go to the Results
+          Check your results
         </Link>
       </div>
     </div>
   );
 }
-TestFinish.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
-};
 
 export default TestFinish;
